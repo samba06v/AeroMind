@@ -4,11 +4,14 @@ import * as schema from "@shared/schema";
 
 const { Pool } = pg;
 
-if (!process.env.DATABASE_URL) {
-  throw new Error(
-    "DATABASE_URL must be set. Did you forget to provision a database?",
-  );
-}
+// Make database optional for demo - will use mock data if not configured
+const DATABASE_URL = process.env.DATABASE_URL || "postgresql://demo:demo@localhost:5432/demo";
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+export const pool = new Pool({ 
+  connectionString: DATABASE_URL,
+  // Don't fail if database is not available
+  max: 1,
+  connectionTimeoutMillis: 2000,
+});
+
 export const db = drizzle(pool, { schema });

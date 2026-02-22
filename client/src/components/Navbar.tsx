@@ -18,10 +18,11 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Solution", href: "#solution" },
-    { name: "Product", href: "#product" },
-    { name: "Technology", href: "#technology" },
-    { name: "Vision", href: "#vision" },
+    { name: "Platform", href: "/platform" },
+    { name: "Technology", href: "/technology" },
+    { name: "Customers", href: "/customers" },
+    { name: "Vision", href: "/vision" },
+    { name: "Demo", href: "/demo" },
   ];
 
   return (
@@ -46,15 +47,13 @@ export function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              {link.name}
-            </a>
+            <Link key={link.name} href={link.href}>
+              <a className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                {link.name}
+              </a>
+            </Link>
           ))}
-          <a href="#contact">
+          <a href="/#contact">
             <Button className="rounded-full px-6 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
               Get Started <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
@@ -74,16 +73,16 @@ export function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-white/10 p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-lg font-medium py-2 px-4 hover:bg-secondary/50 rounded-lg transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.name}
-            </a>
+            <Link key={link.name} href={link.href}>
+              <a
+                className="text-lg font-medium py-2 px-4 hover:bg-secondary/50 rounded-lg transition-colors block"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            </Link>
           ))}
-          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+          <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
             <Button className="w-full mt-4">Get Started</Button>
           </a>
         </div>

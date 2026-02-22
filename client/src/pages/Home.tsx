@@ -59,12 +59,16 @@ function Hero() {
             Transforming reactive aviation operations into a predictive, unified intelligence network. Stop disruptions before they cascade.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="text-lg px-8 py-6 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_30px_-10px_var(--primary)]">
-              Request Demo
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 rounded-full border-white/20 hover:bg-white/5">
-              Explore Platform
-            </Button>
+            <a href="/demo">
+              <Button size="lg" className="text-lg px-8 py-6 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_30px_-10px_var(--primary)]">
+                View Live Demo
+              </Button>
+            </a>
+            <a href="/platform">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6 rounded-full border-white/20 hover:bg-white/5">
+                Explore Platform
+              </Button>
+            </a>
           </div>
         </motion.div>
 
